@@ -92,7 +92,7 @@ export const projects = [
   {
     id: 3,
     title: "BookAid — Book Discovery App",
-    des: "A responsive book discovery app with an AI chat feature that lets users have conversations with any book. Built with React and Vite, integrated with a books REST API and an LLM for interactive Q&A.",
+    des: "A responsive book discovery app with AI chat that lets users have conversations with any book, plus subscription plans for premium access. Built with React and Vite, integrated with a books REST API and an LLM for interactive Q&A.",
     img: "/p3.svg",
     iconLists: ["/re.svg", "/tail.svg", "/git.svg"],
     tech: ["React", "Vite", "JavaScript", "REST APIs", "AI Integration"],
