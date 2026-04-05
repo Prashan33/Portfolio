@@ -1,13 +1,13 @@
 "use client";
 
-import { FaLocationArrow } from "react-icons/fa6";
+import { FaLocationArrow, FaGithub } from "react-icons/fa6";
 
 import { projects } from "@/data";
 import { PinContainer } from "./ui/Pin";
 
 const RecentProjects = () => {
   return (
-    <div className="py-20">
+    <div className="py-20" id="projects">
       <h1 className="heading">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
@@ -15,14 +15,12 @@ const RecentProjects = () => {
       <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
         {projects.map((item) => (
           <div
-            className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
+            className="lg:min-h-[40rem] h-[32rem] flex items-center justify-center sm:w-96 w-[80vw]"
             key={item.id}
           >
-            <PinContainer
-              title="/ui.aceternity.com"
-              href="https://twitter.com/mannupaaji"
-            >
-              <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
+            <PinContainer title={item.liveLink} href={item.liveLink}>
+              {/* Cover image */}
+              <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[28vh] mb-4">
                 <div
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
@@ -36,40 +34,64 @@ const RecentProjects = () => {
                 />
               </div>
 
+              {/* Title */}
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
                 {item.title}
               </h1>
 
+              {/* Description */}
               <p
-                className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
-                style={{
-                  color: "#BEC1DD",
-                  margin: "1vh 0",
-                }}
+                className="lg:text-base lg:font-normal font-light text-sm mt-1"
+                style={{ color: "#BEC1DD" }}
               >
                 {item.des}
               </p>
 
-              <div className="flex items-center justify-between mt-7 mb-3">
+              {/* Tech tags */}
+              <div className="flex flex-wrap gap-1 mt-2">
+                {item.tech.map((tag, i) => (
+                  <span
+                    key={i}
+                    className="text-[10px] px-2 py-0.5 rounded-full bg-[#10132E] text-white-200 border border-white/[0.08]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Icons + Buttons */}
+              <div className="flex items-center justify-between mt-4 mb-1">
+                {/* Tech icons */}
                 <div className="flex items-center">
                   {item.iconLists.map((icon, index) => (
                     <div
                       key={index}
                       className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                      style={{
-                        transform: `translateX(-${5 * index + 2}px)`,
-                      }}
+                      style={{ transform: `translateX(-${5 * index + 2}px)` }}
                     >
-                      <img src={icon} alt="icon5" className="p-2" />
+                      <img src={icon} alt="icon" className="p-2" />
                     </div>
                   ))}
                 </div>
 
-                <div className="flex justify-center items-center">
-                  <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                    Check Live Site
-                  </p>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
+                {/* Action buttons */}
+                <div className="flex items-center gap-3">
+                  <a
+                    href={item.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-sm text-purple hover:opacity-80 transition"
+                  >
+                    Live <FaLocationArrow size={12} color="#CBACF9" />
+                  </a>
+                  <a
+                    href={item.repoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-sm text-white-200 hover:opacity-80 transition"
+                  >
+                    Code <FaGithub size={12} />
+                  </a>
                 </div>
               </div>
             </PinContainer>

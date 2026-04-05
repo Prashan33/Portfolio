@@ -8,17 +8,17 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
+    title: "Tech enthusiast with a passion for development.",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
-    img: "/b1.svg",
+    img: "/prashan.png",
     spareImg: "",
   },
   {
     id: 2,
-    title: "I'm very flexible with time zone communications",
+    title: "Always learning new technologies and improving my development skills.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -38,7 +38,7 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Tech enthusiast with a passion for development.",
+    title: "Building real-world projects to grow as a software engineer.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
@@ -46,10 +46,9 @@ export const gridItems = [
     img: "/grid.svg",
     spareImg: "/b4.svg",
   },
-
   {
     id: 5,
-    title: "Currently building a JS Animation library",
+    title: "Currently building projects and sharpening my software engineering skills.",
     description: "The Inside Scoop",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -59,7 +58,7 @@ export const gridItems = [
   },
   {
     id: 6,
-    title: "Do you want to start a project together?",
+    title: "Contact me",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
@@ -72,130 +71,107 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    title: "VistaTribe — Travel Listing Platform",
+    des: "A full-stack travel listing platform where users can create, explore, and manage listings. Features RESTful APIs, dynamic data handling, and user authentication.",
     img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
+    iconLists: ["/next.svg", "/re.svg", "/git.svg"],
+    tech: ["Node.js", "Express.js", "MongoDB", "Mongoose", "EJS", "REST APIs"],
+    liveLink: "https://vistatribe.onrender.com/listings",
+    repoLink: "https://github.com/Prashan33/VistaTribe",
   },
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    title: "PrashanGPT — AI Chatbot App",
+    des: "A full-stack AI chatbot enabling real-time conversations through API integration. Built with React and Node.js, using Context API for global state management.",
     img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
+    iconLists: ["/re.svg", "/next.svg", "/git.svg"],
+    tech: ["React", "Vite", "Node.js", "Express.js", "Context API", "REST APIs"],
+    liveLink: "https://prashangpt-1.onrender.com/",
+    repoLink: "https://github.com/Prashan33/PrashanGPT",
   },
   {
     id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+    title: "BookAid — Book Discovery App",
+    des: "A responsive book discovery app with an AI chat feature that lets users have conversations with any book. Built with React and Vite, integrated with a books REST API and an LLM for interactive Q&A.",
     img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "/ui.aiimg.com",
-  },
-  {
-    id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "/ui.apple.com",
+    iconLists: ["/re.svg", "/tail.svg", "/git.svg"],
+    tech: ["React", "Vite", "JavaScript", "REST APIs", "AI Integration"],
+    liveLink: "https://book-aid.vercel.app/",
+    repoLink: "https://github.com/Prashan33/BookAid",
   },
 ];
 
 export const testimonials = [
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Prashan is a driven and curious developer who consistently brings energy and creativity to his work. His ability to pick up new technologies quickly and apply them to real-world projects stands out. He has a strong foundation in full-stack development and a genuine passion for building software. I have no doubt he will make a meaningful impact wherever he goes next.",
+    name: "Raunak Raj Rauniyar",
+    title: "Founder & CEO • CallNetwork | Lead at Superteam Nepal",
+    img: "/profile.jpeg",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Prashan demonstrates a strong desire to understand the 'why' behind the technologies he uses, not just the 'how'. In my courses, he showed consistent curiosity, a methodical approach to problem solving, and the initiative to go beyond the material. Those qualities are exactly what distinguish great engineers from good ones.",
+    name: "Jacob Hochstetler",
+    title: "Clinical Assistant Professor • Computer Science & Engineering, UNT",
+    img: "/jacob.jpg",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Prashan is a driven and curious developer who consistently brings energy and creativity to his work. His ability to pick up new technologies quickly and apply them to real-world projects stands out. He has a strong foundation in full-stack development and a genuine passion for building software. I have no doubt he will make a meaningful impact wherever he goes next.",
+    name: "Raunak Raj Rauniyar",
+    title: "Founder & CEO • CallNetwork | Lead at Superteam Nepal",
+    img: "/profile.jpeg",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Prashan demonstrates a strong desire to understand the 'why' behind the technologies he uses, not just the 'how'. In my courses, he showed consistent curiosity, a methodical approach to problem solving, and the initiative to go beyond the material. Those qualities are exactly what distinguish great engineers from good ones.",
+    name: "Jacob Hochstetler",
+    title: "Clinical Assistant Professor • Computer Science & Engineering, UNT",
+    img: "/jacob.jpg",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Prashan has a genuine interest in understanding how distributed systems and computing workflows come together at scale. He approaches complex topics with patience and intellectual curiosity, and brings that same rigour to his own projects. I expect him to continue growing into a well-rounded software engineer.",
+    name: "Tong Shu",
+    title: "Assistant Professor • Computer Science & Engineering, UNT",
+    img: "/tong_shu.jpg",
   },
 ];
 
-export const companies = [
-  {
-    id: 1,
-    name: "cloudinary",
-    img: "/cloud.svg",
-    nameImg: "/cloudName.svg",
-  },
-  {
-    id: 2,
-    name: "appwrite",
-    img: "/app.svg",
-    nameImg: "/appName.svg",
-  },
-  {
-    id: 3,
-    name: "HOSTINGER",
-    img: "/host.svg",
-    nameImg: "/hostName.svg",
-  },
-  {
-    id: 4,
-    name: "stream",
-    img: "/s.svg",
-    nameImg: "/streamName.svg",
-  },
-  {
-    id: 5,
-    name: "docker.",
-    img: "/dock.svg",
-    nameImg: "/dockerName.svg",
-  },
-];
+export const companies: {
+  id: number;
+  name: string;
+  img: string;
+  nameImg: string;
+}[] = [];
 
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    title: "Full-Stack Web Development",
+    desc: "Built multiple full-stack projects using React, Node.js, Express, and MongoDB — handling everything from REST API design to responsive front-end UI.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-    className: "md:col-span-2", // change to md:col-span-2
+    title: "AI-Powered Web Applications",
+    desc: "Developed AI-integrated web apps using React and Node.js, connecting front-end interfaces to LLM APIs for conversational and generative features.",
+    className: "md:col-span-2",
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-    className: "md:col-span-2", // change to md:col-span-2
+    title: "Data Structures & Algorithms",
+    desc: "Actively practising DSA problems on LeetCode and competitive platforms to strengthen problem-solving skills and prepare for technical interviews.",
+    className: "md:col-span-2",
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    title: "Independent Software Development",
+    desc: "Self-directed learner shipping personal projects end-to-end — from ideation and system design through to deployment and iteration.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },
@@ -205,13 +181,11 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
+    link: "https://github.com/Prashan33",
   },
   {
     id: 2,
-    img: "/twit.svg",
-  },
-  {
-    id: 3,
     img: "/link.svg",
+    link: "https://www.linkedin.com/in/prashan-adhikari-902915242/",
   },
 ];
