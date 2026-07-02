@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FaLocationArrow, FaGithub } from "react-icons/fa6";
 
 import { projects } from "@/data";
@@ -19,39 +20,41 @@ const RecentProjects = () => {
             key={item.id}
           >
             <PinContainer title={item.liveLink} href={item.liveLink}>
-              {/* Cover image */}
-              <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[28vh] mb-4 rounded-xl">
-                <img
-                  src={item.img}
-                  alt="cover"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
+              <Link href={`/projects/${item.id}`} className="contents">
+                {/* Cover image */}
+                <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[28vh] mb-4 rounded-xl">
+                  <img
+                    src={item.img}
+                    alt="cover"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
 
-              {/* Title */}
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
-                {item.title}
-              </h1>
+                {/* Title */}
+                <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
+                  {item.title}
+                </h1>
 
-              {/* Description */}
-              <p
-                className="lg:text-base lg:font-normal font-light text-sm mt-1"
-                style={{ color: "#BEC1DD" }}
-              >
-                {item.des}
-              </p>
+                {/* Description */}
+                <p
+                  className="lg:text-base lg:font-normal font-light text-sm mt-1"
+                  style={{ color: "#BEC1DD" }}
+                >
+                  {item.des}
+                </p>
 
-              {/* Tech tags */}
-              <div className="flex flex-wrap gap-1 mt-2">
-                {item.tech.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="text-[10px] px-2 py-0.5 rounded-full bg-[#10132E] text-white-200 border border-white/[0.08]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+                {/* Tech tags */}
+                <div className="flex flex-wrap gap-1 mt-2">
+                  {item.tech.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="text-[10px] px-2 py-0.5 rounded-full bg-[#10132E] text-white-200 border border-white/[0.08]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </Link>
 
               {/* Icons + Buttons */}
               <div className="flex items-center justify-between mt-4 mb-1">

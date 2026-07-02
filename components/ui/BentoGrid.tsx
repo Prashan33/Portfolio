@@ -12,6 +12,7 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
+import ErrorBoundary from "./ErrorBoundary";
 
 export const BentoGrid = ({
   className,
@@ -178,7 +179,14 @@ export const BentoGridItem = ({
               <div
                 className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"}`}
               >
-                <Lottie options={defaultOptions} height={200} width={400} />
+                <ErrorBoundary>
+                  <Lottie
+                    options={defaultOptions}
+                    eventListeners={[]}
+                    height={200}
+                    width={400}
+                  />
+                </ErrorBoundary>
               </div>
 
               <MagicButton
