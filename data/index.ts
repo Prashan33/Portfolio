@@ -109,6 +109,16 @@ export const projects = [
     liveLink: "https://prashangpt-1.onrender.com/",
     repoLink: "https://github.com/Prashan33/PrashanGPT",
   },
+  {
+    id: 5,
+    title: "Ghost AI — Real-Time Collaborative System Design Tool",
+    des: "An AI-powered tool for designing system architecture on an infinite canvas with real-time multiplayer collaboration, an AI chat sidebar, and one-click generation of a full technical specification document from the canvas and conversation.",
+    img: "/ghostai.png",
+    iconLists: ["/next.svg", "/ts.svg", "/tail.svg", "/git.svg"],
+    tech: ["Next.js 16", "TypeScript", "React Flow", "Liveblocks", "Vercel AI SDK", "Trigger.dev", "Prisma", "Clerk", "Tailwind CSS"],
+    liveLink: "https://ghostai-git-main-prashan1.vercel.app",
+    repoLink: "https://github.com/Prashan33/ghostai",
+  },
 ];
 
 export const testimonials = [
