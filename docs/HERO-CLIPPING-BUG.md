@@ -25,28 +25,37 @@ flex justify-center items-center flex-col overflow-hidden
 ```
 
 The hero's spotlight / glow layers (`components/Hero.tsx`, `components/ui/Spotlight.tsx`)
-are absolutely positioned with negative `top` values, so the flex content inside
-`<main>` is ~288px taller than `<main>`'s box. `justify-center` centres that
-overflow (pushing the top of the hero above the container) and `overflow-hidden`
-clips it and makes it unreachable by scrolling.
+are absolutely positioned and oversized, so the content region of `<main>` is
+~288px taller than `<main>`'s box.
+
+Two things combined:
+
+1. **`justify-center`** centred that overflow, pushing the top of the hero above
+   the container.
+2. **`overflow-hidden`** made `<main>` a *scroll container*. `overflow: hidden`
+   has no scrollbar but is still scrollable programmatically — so clicking
+   "See my work" (`href="#projects"`) scrolled `<main>` internally, and the page
+   could no longer return to the true top. `window.scrollY` stays `0` while the
+   hero sits shoved up under the navbar.
 
 ## The fix
 
-`<main>` must **not** vertically centre or vertically clip its content:
+In [`app/page.tsx`](../app/page.tsx), `<main>` must use **`justify-start`** and
+**`overflow-clip`** (not `justify-center`, not `overflow-hidden`):
 
 ```diff
 - <main className="... flex justify-center items-center flex-col overflow-hidden ...">
-+ <main className="... flex justify-start  items-center flex-col overflow-x-clip ...">
++ <main className="... flex justify-start  items-center flex-col overflow-clip  ...">
 ```
 
-- `justify-start` — content is anchored to the top, never centred, so nothing can
-  be pushed above the viewport.
-- `overflow-x-clip` — still prevents sideways scrollbars from the wide glow
-  elements, but does **not** clip vertically (and doesn't turn `<main>` into a
-  scroll container the way `overflow-x-hidden` can).
+- `justify-start` — in-flow content is anchored to the top, never centred.
+- `overflow-clip` — clips the hero's oversized spotlight/glow layers on **both**
+  axes (no sideways scrollbar, no black gap below the footer) **without** making
+  `<main>` a scroll container. This is the key difference from `overflow-hidden`.
 
-Never put `justify-center` or `overflow-hidden` / `overflow-y-hidden` back on that
-`<main>`.
+Do not use on `<main>`: `justify-center`, `overflow-hidden`, `overflow-y-hidden`,
+or `overflow-x-clip` alone (that last one leaves ~288px of black space below the
+footer because it doesn't clip vertically).
 
 ## Related navbar notes (`components/ui/FloatingNavbar.tsx`)
 

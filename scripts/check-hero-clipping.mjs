@@ -4,20 +4,23 @@
  * Regression check for the "hero heading gets cut off at the top after
  * clicking 'See my work' and scrolling back" bug.
  *
- * Root cause (fixed 2026): <main> in app/page.tsx used
- *   `justify-center` + `overflow-hidden`
- * The hero's spotlight/glow layers add ~288px of content above the normal
- * flow. `justify-center` centred that overflow and `overflow-hidden`
- * clipped the top of the hero off — permanently, unreachable by scrolling.
- * `window.scrollY` reads 0 but the hero content sits ~288px higher than
- * the viewport top.
+ * Root cause (fixed 2026): <main> in app/page.tsx used `justify-center` +
+ * `overflow-hidden`. The hero's oversized spotlight/glow layers make
+ * <main>'s content region ~288px taller than its box. `justify-center`
+ * centred that overflow, and `overflow-hidden` made <main> a scroll
+ * container (scrollable programmatically with no scrollbar) — so clicking
+ * "See my work" scrolled <main> internally and the page could not return
+ * to the true top. `window.scrollY` reads 0 but the hero sits ~288px
+ * higher than the viewport top, under the navbar.
  *
- * The fix: <main> must use `justify-start` + `overflow-x-clip`
- * (never `justify-center` / `overflow-hidden` on that element).
+ * The fix: <main> must use `justify-start` + `overflow-clip`
+ * (NOT `justify-center`, NOT `overflow-hidden`, NOT `overflow-x-clip`
+ * alone — that leaves ~288px of black space below the footer).
  *
  * This script drives a real browser through the exact repro and fails
- * loudly if the hero top is clipped again. Re-run it whenever you add a
- * project or touch the layout / navbar / hero.
+ * loudly if the hero top is clipped again OR if there's a big empty gap
+ * below the footer. Re-run it whenever you add a project or touch the
+ * layout / navbar / hero.
  *
  * USAGE
  *   1. Start the dev server:      npm run dev       (note the port)
@@ -93,12 +96,23 @@ try {
         navOnTop = navEl.contains(hit);
       }
 
+      // gap between the bottom of the footer and the bottom of the document
+      // (a large positive number => empty black space below the footer)
+      const footer = document.querySelector("footer");
+      const docHeight = document.documentElement.scrollHeight;
+      const footerBottomAbs = footer
+        ? Math.round(footer.getBoundingClientRect().bottom + window.scrollY)
+        : null;
+      const gapBelowFooter =
+        footerBottomAbs === null ? null : docHeight - footerBottomAbs;
+
       return {
         scrollY: Math.round(window.scrollY),
         heroTop,
         mainJustify: mcs.justifyContent,
         mainOverflowY: mcs.overflowY,
-        docHeight: document.documentElement.scrollHeight,
+        docHeight,
+        gapBelowFooter,
         navPresent: !!navEl,
         navOnTop,
       };
@@ -142,8 +156,8 @@ try {
     fail(
       `hero top is at ${after.heroTop}px while scrollY is 0 — the top of the ` +
         `hero is clipped/offscreen by ~${Math.abs(after.heroTop)}px. ` +
-        `Check <main> in app/page.tsx: it must use justify-start + ` +
-        `overflow-x-clip, NOT justify-center / overflow-hidden.`
+        `Check <main> in app/page.tsx: it must use justify-start ` +
+        `(NOT justify-center).`
     );
   } else {
     log(`✓ hero top is flush with the viewport (${after.heroTop}px)`);
@@ -158,13 +172,16 @@ try {
     log(`✓ <main> justify-content is '${after.mainJustify}'`);
   }
 
-  if (after.mainOverflowY === "hidden") {
+  if (after.gapBelowFooter === null) {
+    log("• could not find <footer> to check for a gap below it");
+  } else if (after.gapBelowFooter > 60) {
     fail(
-      "<main> computed overflow-y is 'hidden' — this makes the clipped hero " +
-        "unreachable. Use 'overflow-x-clip' in app/page.tsx."
+      `~${after.gapBelowFooter}px of empty space below the footer. The hero's ` +
+        `oversized glow layers are showing through. <main> in app/page.tsx ` +
+        `needs overflow-clip (clips both axes) together with justify-start.`
     );
   } else {
-    log(`✓ <main> overflow-y is '${after.mainOverflowY}'`);
+    log(`✓ no dead space below the footer (${after.gapBelowFooter}px)`);
   }
 
   if (after.navPresent && after.navOnTop === false) {
