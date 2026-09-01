@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Prashan Adhikari | Portfolio",
-  description: "CS student at the University of North Texas — building full-stack projects and exploring software engineering.",
+  description: "CS student at the University of North Texas, building full-stack projects and exploring software engineering.",
 };
 
 export default function RootLayout({

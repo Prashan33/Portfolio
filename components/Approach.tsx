@@ -15,7 +15,7 @@ const Approach = () => {
         <Card
           title="Planning & Problem Understanding"
           icon={<AceternityIcon order="Phase 1" />}
-          des="Before writing a single line of code, I break down the problem — defining the goal, mapping the data flow, and sketching the architecture. Clear thinking here saves hours of debugging later."
+          des="Before writing a single line of code, I break down the problem, defining the goal, mapping the data flow, and sketching the architecture. Clear thinking here saves hours of debugging later."
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -26,7 +26,7 @@ const Approach = () => {
         <Card
           title="Development & Implementation"
           icon={<AceternityIcon order="Phase 2" />}
-          des="I put on a lofi playlist and get to work — building features iteratively, writing clean code, and committing progress along the way. I focus on making things work before making them perfect."
+          des="I put on a lofi playlist and get to work, building features iteratively, writing clean code, and committing progress along the way. I focus on making things work before making them perfect."
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -46,7 +46,7 @@ const Approach = () => {
         <Card
           title="Testing & Continuous Improvement"
           icon={<AceternityIcon order="Phase 3" />}
-          des="I test edge cases, fix bugs, and look for ways to improve performance and UX. Projects are never truly done — there's always something to refine, optimise, or learn from."
+          des="I test edge cases, fix bugs, and look for ways to improve performance and UX. Projects are never truly done; there's always something to refine, optimise, or learn from."
         >
           <CanvasRevealEffect
             animationSpeed={3}
