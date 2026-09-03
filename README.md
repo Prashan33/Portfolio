@@ -238,3 +238,7 @@ Computer Science · University of North Texas · Class of 2026
 - Email: [prashanadhikari2486@gmail.com](mailto:prashanadhikari2486@gmail.com)
 
 Open to **software engineering internships, new-grad SWE roles, and collaboration on full-stack / AI projects** starting 2026.
+
+---
+
+_Last updated: September 2026_
